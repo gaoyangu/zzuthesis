@@ -4,7 +4,7 @@
 
 - 英文字体更改为Times New Roman
 - [master分支](https://github.com/gaoyangu/zzuthesis/tree/master)为`专业硕士`版本
-- [main分支](https://github.com/gaoyangu/zzuthesis/tree/master)为`学术硕士`版本
+- [main分支](https://github.com/gaoyangu/zzuthesis/tree/main)为`学术硕士`版本
 
 ### Tips:
 
