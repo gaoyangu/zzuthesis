@@ -3,6 +3,8 @@
 ## 根据郑州大学电气工程学院硕士毕业论文要求进行修改：
 
 - 英文字体更改为Times New Roman
+- [master分支](https://github.com/gaoyangu/zzuthesis/tree/master)为`专业硕士`版本
+- [main分支](https://github.com/gaoyangu/zzuthesis/tree/master)为`学术硕士`版本
 
 ### Tips:
 
