@@ -3,7 +3,7 @@
 %% Encoding: UTF-8
 %% Author: Yuan Xiaoshuai - yxshuai@gmail.com
 %% Created: 2012-01-08 13:11
-%% Last modified: 2020-04-05 20:27
+%% Last modified: 2022-04-11 09:30
 %%================================================
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 标识节(Identification)
@@ -40,9 +40,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 装载类与宏包 (Loading classes & packages)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifzzu@doctor%博士论文双面打印
-  \LoadClass[zihao=-4,a4paper,UTF8,scheme=plain]{ctexbook}
-\else%其它单面打印
+\ifzzu@doctor
+  \LoadClass[zihao=-4,a4paper,UTF8,scheme=plain,openany]{ctexbook}
+\else
   \LoadClass[zihao=-4,a4paper,UTF8,scheme=plain,openany]{ctexbook}
 \fi
 \RequirePackage{ifxetex}
@@ -87,28 +87,28 @@
 %% 文前，正文，文后格式
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand\frontmatter{%
-  \ifzzu@doctor\cleardoublepage\else\clearpage\fi
-  \ctexset{chapter/format+=\centering}
-  \@mainmatterfalse
-  \pagenumbering{Roman}
-  \pagestyle{zzu@headings}}
+	\ifzzu@doctor\clearpage\else\clearpage\fi
+	\ctexset{chapter/format+=\centering}
+	\@mainmatterfalse
+	\pagenumbering{Roman}
+	\pagestyle{zzu@headings}}
 \renewcommand\mainmatter{%
-  \ifzzu@doctor\cleardoublepage\else\clearpage\fi
-  \ctexset{chapter/format+={\ifzzu@bachelor\centering%本科居中
-                            \else\raggedright\fi}}%顶左
-  \@mainmattertrue
-  \pagenumbering{arabic}}
+	\ifzzu@doctor\clearpage\else\clearpage\fi
+	\ctexset{chapter/format+={\ifzzu@bachelor\centering%本科居中
+			\else\raggedright\fi}}%顶左
+	\@mainmattertrue
+	\pagenumbering{arabic}}
 \renewcommand\backmatter{%
-  \ifzzu@doctor\cleardoublepage\else\clearpage\fi
-  \ctexset{chapter/format+=\centering}
-  \@mainmattertrue}
+	\ifzzu@doctor\clearpage\else\clearpage\fi
+	\ctexset{chapter/format+=\centering}
+	\@mainmattertrue}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 中文配置
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ctexset{%
   contentsname={目\hspace{\ccwd} 录},
-  listfigurename={插图清单},
-  listtablename={表格清单},
+  listfigurename={图目录},
+  listtablename={表目录},
   figurename={图},
   tablename={表},
   appendixname={附录},
@@ -136,14 +136,14 @@
   \def\zzu@id@title{学号或申请号}
   \def\zzu@secretlevel@title{密级}
   \ifzzu@master
-    \def\zzu@subtitle{硕士学位论文}
+    \def\zzu@subtitle{专业硕士学位论文}
   \else
     \def\zzu@subtitle{博士学位论文}
   \fi
   \def\zzu@author@title{作者姓名}
   \def\zzu@supervisor@title{导师姓名}
   \def\zzu@subject@title{学科门类}
-  \def\zzu@major@title{专业名称}
+  \def\zzu@major@title{专业学位名称}
   \ifzzu@master
     \def\zzu@department@title{培养院系}
   \else\fi
@@ -238,7 +238,7 @@
   autoindent=true}
 \let\zzu@cleardoublepage\cleardoublepage
 \newcommand{\zzu@clearemptydoublepage}{%开始奇数新页面
-  \clearpage{\pagestyle{empty}\zzu@cleardoublepage}}
+ \clearpage{\pagestyle{empty}\zzu@cleardoublepage}}
 \let\cleardoublepage\zzu@clearemptydoublepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 页眉页脚
@@ -360,8 +360,8 @@
     name=\relax,
     nameformat=\relax,
     titleformat=\relax,
-    lofskip=0pt,
-    lotskip=0pt,
+%    lofskip=0pt,
+%    lotskip=0pt,
   },
   section={%二级标题：黑体14磅，段前24磅，段后6磅
     afterindent=true,
@@ -402,7 +402,7 @@
     {\zzu@@@chapter[#1]{#2}}
     {\zzu@@@chapter[#1]{#2}[]}}
 \def\zzu@@@chapter[#1]#2[#3]{%
-  \ifzzu@doctor\cleardoublepage\else\clearpage\fi\phantomsection%
+  \ifzzu@doctor\clearpage\else\clearpage\fi\phantomsection%
   \def\@tmpa{#1}
   \def\@tmpb{#3}
   \ifx\@tmpa\@empty
@@ -433,22 +433,25 @@
 \setcounter{tocdepth}{2}%目录深度：2
 \renewcommand\tableofcontents{%
   \zzu@chapter*[]{\contentsname}
+  %\zzu@chapter*{\contentsname}
   \@starttoc{toc}\normalsize}
 \renewcommand\listoffigures{%本科无图和附表清单
   \ifzzu@bachelor\relax\else
-  \zzu@chapter*[]{\listfigurename}
+  %\zzu@chapter*[]{\listfigurename}
+  \zzu@chapter*{\listfigurename}
   \@starttoc{lof}\fi}
 \renewcommand\listoftables{%
   \ifzzu@bachelor\relax\else
-  \zzu@chapter*[]{\listtablename}
+  %\zzu@chapter*[]{\listtablename}
+  \zzu@chapter*{\listtablename}
   \@starttoc{lot}\fi}
-\titlecontents{chapter}[\z@]{\vspace{6bp}\sihao[1]}
+\titlecontents{chapter}[\z@]{\vspace{20bp}\sihao[1]}
   {{\thecontentslabel}\quad}{}
   {\hspace{.5em}\titlerule*{.}\xiaosi\contentspage}
-\titlecontents{section}[2\ccwd]{\vspace{6bp} \xiaosi[1]}
+\titlecontents{section}[2\ccwd]{\vspace{10bp} \xiaosi[1]}
   {\thecontentslabel\quad}{}
   {\hspace{.5em}\titlerule*{.}\xiaosi\contentspage}
-\titlecontents{subsection}[4\ccwd]{\vspace{6bp} \wuhao[1]}
+\titlecontents{subsection}[4\ccwd]{\vspace{8bp} \wuhao[1]}
   {\thecontentslabel\quad}{}
   {\hspace{.5em}\titlerule*{.}\xiaosi\contentspage}
 \titlecontents{figure}[\z@]{\wuhao[1.524]}%10.5bp，16bp
@@ -573,7 +576,7 @@
       \begin{center}
         {\includegraphics{zzu}}
         \par\vskip.6cm
-        {\ziju{0.5}\xiaochu\sffamily\zzu@subtitle}
+        {\ziju{0}\xiaochu\sffamily\zzu@subtitle}
         \vskip \stretch{1}
         \kaishu\erhao[1.5] \zzu@ctitle
         \vskip \stretch{1}
@@ -581,26 +584,32 @@
         \kaishu\sanhao[1.25]
         \def\tabcolsep{\p@}%\tabcolsep：tabular环境中两列标准间隔的一半
         \def\arraystretch{1.5}%\arraystretch表格行距的缩放比例因子（缺省为1）
-        \begin{tabular}{p{\zzu@title@width}l@{}l}
-          \zzu@put@title{\zzu@author@title} &  \zzu@title@sep & 
-            \zzu@underline[150pt]{\zzu@cauthor}
+        \begin{tabular}{p{\zzu@title@width}l@{ ：}l}
+          \zzu@put@title{\zzu@author@title} &  & 
+            %\zzu@underline[150pt]{\zzu@cauthor}
+            {\zzu@cauthor}
         \\
-          \zzu@put@title{\zzu@supervisor@title} &  \zzu@title@sep & 
-            \zzu@underline[150pt]{\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
-        \\ 
-          \zzu@put@title{\zzu@subject@title} &  \zzu@title@sep & 
-            \zzu@underline[150pt]{\zzu@csubject}
+          \zzu@put@title{\zzu@supervisor@title} &  & 
+            %\zzu@underline[150pt]{\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
+            {\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
+        %\\ 
+        %   \zzu@put@title{\zzu@subject@title} &  \zzu@title@sep & 
+        %   \zzu@underline[150pt]{\zzu@csubject}
+        %   {\zzu@csubject}
         \\
-          \zzu@put@title{\zzu@major@title} &  \zzu@title@sep & 
-            \zzu@underline[150pt]{\zzu@cmajor}
+          \zzu@put@title{\zzu@major@title} &  & 
+            %\zzu@underline[150pt]{\zzu@cmajor}
+            {\zzu@cmajor}
         \\
         \ifzzu@doctor\else
-          \zzu@put@title{\zzu@department@title} &  \zzu@title@sep & 
-            \zzu@underline[150pt]{\zzu@cdepartment}
+          \zzu@put@title{\zzu@department@title} &  & 
+            %\zzu@underline[150pt]{\zzu@cdepartment}
+            {\zzu@cdepartment}
         \\
         \fi
-          \zzu@put@title{\zzu@cdate@title} &  \zzu@title@sep & 
-            \zzu@underline[150pt]{\zzu@cdate}
+          \zzu@put@title{\zzu@cdate@title} &  & 
+            %\zzu@underline[150pt]{\zzu@cdate}
+            {\zzu@cdate}
         \end{tabular}\\
         \vskip \stretch{1}
       \end{center}
@@ -665,7 +674,7 @@
   \thispagestyle{zzu@empty}
   \vspace*{\stretch{1}}
   \begin{center}
-    \sffamily\sanhao \zzu@declarename
+    \sffamily\sanhao[1.55] \zzu@declarename
   \end{center}
   \vskip 20pt
   \xiaosi[2]\zzu@declaretext
@@ -673,7 +682,7 @@
   \zzu@authorsig\hfill\zzu@declaredate\hspace*{2\ccwd}
   \vspace*{\stretch{2}}
   \begin{center}
-    \sffamily\sanhao \zzu@authtitle
+    \sffamily\sanhao[1.55] \zzu@authtitle
   \end{center}
   \vskip 20pt
   \xiaosi[2]\zzu@authorization
@@ -696,9 +705,9 @@
     \zzu@first@titlepage
     \ifzzu@bachelor\clearpage
     \else
-      \ifzzu@doctor\cleardoublepage\else\clearpage\fi
+      \ifzzu@doctor\clearpage\else\clearpage\fi  %**
       \zzu@engcover
-      \ifzzu@doctor\cleardoublepage\else\clearpage\fi
+      \ifzzu@doctor\clearpage\else\clearpage\fi  %**
       \zzu@authorization@mk
     \fi%
   \end{titlepage}
@@ -708,10 +717,8 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 中英文摘要及关键词
-%% 中文摘要部分的标题为"摘要"(本科为"中文摘要"，黑体三号字)
-%%   关键词之间空两个汉字符宽度，悬挂缩进
-%% 英文摘要部分的标题为 Abstract，用 Arial 体三号字
-%%   关键词之间空四个英文字符宽度，悬挂缩进
+%% 中文摘要部分的标题为"摘要"
+%% 英文摘要部分的标题为 Abstract，用 Arial 体
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\zzu@@cabstract}[1]{\long\gdef\zzu@cabstract{#1}}
 \newenvironment{cabstract}{\Collect@Body\zzu@@cabstract}{}
@@ -734,18 +741,21 @@
 \newcommand\zzu@put@keywords[2]{%
   \begingroup
     \setbox\zzu@kw=\hbox{#1}
-    \ifzzu@bachelor\indent\else\noindent\hangindent\wd\zzu@kw\hangafter1\fi%
+    %\ifzzu@bachelor\indent\else\noindent\hangindent\wd\zzu@kw\hangafter1\fi%
+    \ifzzu@bachelor\indent\else\noindent\hangindent\wd\zzu@kw\hangafter5\fi%\hangafter5悬挂缩进5是第5行
     \box\zzu@kw#2\par
   \endgroup}
 \newcommand{\zzu@makeabstract}{%
-  \ifzzu@doctor\cleardoublepage\else\clearpage\fi
-  \zzu@chapter*[]{\cabstractname} % no tocline
+  \ifzzu@doctor\clearpage\else\clearpage\fi %**
+  %\zzu@chapter*[]{\cabstractname} % no tocline
+  \zzu@chapter*{\cabstractname} % tocline
   \pagestyle{zzu@headings}
   \pagenumbering{Roman}
   \zzu@cabstract
   \vskip12bp
   \zzu@put@keywords{\textbf\zzu@ckeywords@title}{\zzu@ckeywords}
-  \zzu@chapter*[]{\eabstractname} % no tocline
+  %\zzu@chapter*[]{\eabstractname} % no tocline
+  \zzu@chapter*{\eabstractname} % tocline
   \zzu@eabstract
   \vskip12bp
   \zzu@put@keywords{%
@@ -755,7 +765,7 @@
 %% 主要符号对照表
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{denotation}[1][2.5cm]{
-  \ifzzu@doctor\cleardoublepage\else\clearpage\fi
+  \ifzzu@doctor\clearpage\else\clearpage\fi%**
   \zzu@chapter*[]{\zzu@denotation@name}
   \noindent\begin{list}{}%
     {\vskip-30bp\wuhao[1.524]%宋体五号(10.5磅)，行距16磅
@@ -774,7 +784,9 @@
 %% 致谢
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{ack}{%
-    \ifzzu@doctor\cleardoublepage\else\clearpage\fi
+    \ifzzu@doctor\clearpage\else\clearpage\fi %**
+    \ctexset{chapter/format+=\raggedright}%%标题靠左
+    \ifzzu@doctor\clearpage\fi
     \zzu@chapter*{\zzu@ackname}
     \fangsong\xiaosi[1.524]%仿宋五号，固定行距16磅
   }{}
@@ -782,7 +794,7 @@
 %% 综述
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{review}{%
-    \ifzzu@doctor\cleardoublepage\else\clearpage\fi
+    \ifzzu@doctor\clearpage\else\clearpage\fi %**
     \ctexset{chapter/format+=\raggedright}
     \zzu@chapter*{\zzu@review@title}
     \begin{center}
@@ -806,6 +818,7 @@
 \DeclareRobustCommand\onlinecite{\@onlinecite}
 \def\@onlinecite#1{\begingroup\let\@cite\NAT@citenum\citep{#1}\endgroup}
 \renewenvironment{thebibliography}[1]{%
+   \ctexset{chapter/format+=\raggedright}%标题靠左
    \zzu@chapter*{\bibname}%
    \wuhao[1.524]%宋体五号，行距16磅
    \list{\@biblabel{\@arabic\c@enumiv}}%
@@ -841,6 +854,7 @@
 %% 个人简历、在学期间发表的学术论文及研究成果
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{resume}[1][\zzu@resume@title]{%
+  \ctexset{chapter/format+=\raggedright}%标题靠左
   \zzu@chapter*{#1}\wuhao[1.524]}{}
 \newcommand{\resumeitem}[1]{\vspace{2em}{\sihao\sffamily{#1}}\vspace{.5em}\par}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
