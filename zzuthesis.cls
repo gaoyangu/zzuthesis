@@ -3,7 +3,7 @@
 %% Encoding: UTF-8
 %% Author: Yuan Xiaoshuai - yxshuai@gmail.com
 %% Created: 2012-01-08 13:11
-%% Last modified: 2022-04-11 09:30
+%% Last modified: 2020-04-05 20:27
 %%================================================
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 标识节(Identification)
@@ -125,7 +125,7 @@
 \ifzzu@bachelor
   \def\zzu@subtitle{毕业设计（论文）}
   \def\zzu@bachelor@title@pre{题\hspace{2\ccwd} 目}
-  \def\zzu@supervisor@title{指导教师}
+  \def\zzu@supervisor@title{指导教师
   \def\zzu@protitle@title{职称}
   \def\zzu@author@title{学生姓名}
   \def\zzu@stuno@title{学号}
@@ -136,14 +136,14 @@
   \def\zzu@id@title{学号或申请号}
   \def\zzu@secretlevel@title{密级}
   \ifzzu@master
-    \def\zzu@subtitle{专业硕士学位论文}
+    \def\zzu@subtitle{硕士学位论文}
   \else
     \def\zzu@subtitle{博士学位论文}
   \fi
   \def\zzu@author@title{作者姓名}
   \def\zzu@supervisor@title{导师姓名}
   \def\zzu@subject@title{学科门类}
-  \def\zzu@major@title{专业学位名称}
+  \def\zzu@major@title{专业名称}
   \ifzzu@master
     \def\zzu@department@title{培养院系}
   \else\fi
@@ -584,32 +584,32 @@
         \kaishu\sanhao[1.25]
         \def\tabcolsep{\p@}%\tabcolsep：tabular环境中两列标准间隔的一半
         \def\arraystretch{1.5}%\arraystretch表格行距的缩放比例因子（缺省为1）
-        \begin{tabular}{p{\zzu@title@width}l@{ ：}l}
-          \zzu@put@title{\zzu@author@title} &  & 
-            %\zzu@underline[150pt]{\zzu@cauthor}
+        \begin{tabular}{p{\zzu@title@width}l@{  }l}
+        	\zzu@put@title{\zzu@author@title} &  \zzu@title@sep & 
+%        	\zzu@underline[150pt]{\zzu@cauthor}
             {\zzu@cauthor}
-        \\
-          \zzu@put@title{\zzu@supervisor@title} &  & 
-            %\zzu@underline[150pt]{\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
-            {\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
-        %\\ 
-        %   \zzu@put@title{\zzu@subject@title} &  \zzu@title@sep & 
-        %   \zzu@underline[150pt]{\zzu@csubject}
-        %   {\zzu@csubject}
-        \\
-          \zzu@put@title{\zzu@major@title} &  & 
-            %\zzu@underline[150pt]{\zzu@cmajor}
-            {\zzu@cmajor}
-        \\
-        \ifzzu@doctor\else
-          \zzu@put@title{\zzu@department@title} &  & 
-            %\zzu@underline[150pt]{\zzu@cdepartment}
-            {\zzu@cdepartment}
-        \\
-        \fi
-          \zzu@put@title{\zzu@cdate@title} &  & 
-            %\zzu@underline[150pt]{\zzu@cdate}
-            {\zzu@cdate}
+        	\\
+        	\zzu@put@title{\zzu@supervisor@title} &  \zzu@title@sep & 
+%        	\zzu@underline[150pt]{\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
+{\zzu@csupervisor\hspace{\ccwd}\zzu@protitle}
+        	\\ 
+        	\zzu@put@title{\zzu@subject@title} &  \zzu@title@sep & 
+%        	\zzu@underline[150pt]{\zzu@csubject}
+{\zzu@csubject}
+        	\\
+        	\zzu@put@title{\zzu@major@title} &  \zzu@title@sep & 
+%        	\zzu@underline[150pt]{\zzu@cmajor}
+{\zzu@cmajor}
+        	\\
+        	\ifzzu@doctor\else
+        	\zzu@put@title{\zzu@department@title} &  \zzu@title@sep & 
+%        	\zzu@underline[150pt]{\zzu@cdepartment}
+{\zzu@cdepartment}
+        	\\
+        	\fi
+        	\zzu@put@title{\zzu@cdate@title} &  \zzu@title@sep & 
+%        	\zzu@underline[150pt]{\zzu@cdate}
+{\zzu@cdate}
         \end{tabular}\\
         \vskip \stretch{1}
       \end{center}
@@ -655,40 +655,37 @@
   \end{center}}
 \newcommand{\zzu@declarename}{学位论文原创性声明}
 \newcommand{\zzu@authtitle}{学位论文使用授权声明}
-\newcommand{\zzu@authorsig}{学位论文作者：}
+\newcommand{\zzu@authorsig}{学位论文作者签名：}
+\newcommand{\zzu@teachersig}{导师签名：}
 \newcommand{\zzu@declaretext}{\hspace{2\ccwd}
-本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果
-。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的
-科研成果。对本文的研究做出重要贡献的个人和集体，均已在文中以明确方式标明。本声
-明的法律责任由本人承担。}
+	本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的科研成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本声明的法律责任由本人承担。}
 \newcommand{\zzu@declaredate}{日\hspace{\ccwd} 期：\hspace{4\ccwd} 年\hspace{2\ccwd} 月\hspace{2\ccwd} 日}
 \newcommand{\zzu@authorization}{\hspace{2\ccwd}
-本人在导师指导下完成的论文及相关的职务作品，知识产权归属郑州大学。根据郑州大学
-有关保留、使用学位论文的规定，同意学校保留或向国家有关部门或机构送交论文的复印
-件和电子版，允许论文被查阅和借阅；本人授权郑州大学可以将本学位论文的全部或部分
-编入有关数据库进行检索，可以采用影印、缩印或其他复制手段保存论文和汇编本学位论
-文。本人离校后发表、使用学位论文或与该学位论文直接相关的学术论文或成果时，第一
-署名单位仍然为郑州大学。保密论文在解密后应遵守此规定。}
+	本人完全了解郑州大学有关保留、使用学位论文的规定，同意学校保留或向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅；本人授权郑州大学可以将本学位论文的全部或部分编入有关数据库进行检索，可以采用影印、缩印或者其他复制手段保存论文和汇编本学位论文。保密论文在解密后应遵守此规定。}
 \newcommand{\zzu@authdate}{日\hspace{\ccwd} 期：\hspace{4\ccwd} 年\hspace{2\ccwd} 月\hspace{2\ccwd} 日}
 \newcommand{\zzu@authorization@mk}{%原创性声明及授权声明
-  \thispagestyle{zzu@empty}
-  \vspace*{\stretch{1}}
-  \begin{center}
-    \sffamily\sanhao[1.55] \zzu@declarename
-  \end{center}
-  \vskip 20pt
-  \xiaosi[2]\zzu@declaretext
-  \vskip 20pt
-  \zzu@authorsig\hfill\zzu@declaredate\hspace*{2\ccwd}
-  \vspace*{\stretch{2}}
-  \begin{center}
-    \sffamily\sanhao[1.55] \zzu@authtitle
-  \end{center}
-  \vskip 20pt
-  \xiaosi[2]\zzu@authorization
-  \vskip 20pt
-  \zzu@authorsig\hfill\zzu@authdate\hspace*{2\ccwd}
-  \vspace*{\stretch{2}}}
+	\thispagestyle{zzu@empty}
+	\vspace*{\stretch{1}}
+	\begin{center}
+		\sffamily\sanhao[1.55] \zzu@declarename
+	\end{center}
+	\vskip 20pt
+	\xiaosi[2]\zzu@declaretext
+	\vskip 20pt
+	\zzu@authorsig\hfill\zzu@teachersig\hspace*{8\ccwd}
+	\\
+	\hspace*{2\ccwd}\hfill\zzu@authdate
+	\vspace*{\stretch{2}}
+	\begin{center}
+		\sffamily\sanhao[1.55] \zzu@authtitle
+	\end{center}
+	\vskip 20pt
+	\xiaosi[2]\zzu@authorization
+	\vskip 20pt
+	\zzu@authorsig\hfill\zzu@teachersig\hspace*{8\ccwd}
+	\\
+	\hspace*{2\ccwd}\hfill\zzu@authdate
+	\vspace*{\stretch{2}}}
 \def\zzu@setup@pdfinfo{%pdf文档信息
   \hypersetup{%
     pdftitle={\zzu@ctitle},
@@ -748,14 +745,14 @@
 \newcommand{\zzu@makeabstract}{%
   \ifzzu@doctor\clearpage\else\clearpage\fi %**
   %\zzu@chapter*[]{\cabstractname} % no tocline
-  \zzu@chapter*{\cabstractname} % tocline
+  \zzu@chapter*{\cabstractname} % no tocline
   \pagestyle{zzu@headings}
   \pagenumbering{Roman}
   \zzu@cabstract
   \vskip12bp
   \zzu@put@keywords{\textbf\zzu@ckeywords@title}{\zzu@ckeywords}
   %\zzu@chapter*[]{\eabstractname} % no tocline
-  \zzu@chapter*{\eabstractname} % tocline
+  \zzu@chapter*{\eabstractname} % no tocline
   \zzu@eabstract
   \vskip12bp
   \zzu@put@keywords{%
