@@ -653,42 +653,39 @@
       \end{center}}
   \vfill
   \end{center}}
-\newcommand{\zzu@declarename}{学位论文原创性声明}
-\newcommand{\zzu@authtitle}{学位论文使用授权声明}
-\newcommand{\zzu@authorsig}{学位论文作者：}
-\newcommand{\zzu@declaretext}{\hspace{2\ccwd}
-本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果
-。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的
-科研成果。对本文的研究做出重要贡献的个人和集体，均已在文中以明确方式标明。本声
-明的法律责任由本人承担。}
-\newcommand{\zzu@declaredate}{日\hspace{\ccwd} 期：\hspace{4\ccwd} 年\hspace{2\ccwd} 月\hspace{2\ccwd} 日}
-\newcommand{\zzu@authorization}{\hspace{2\ccwd}
-本人在导师指导下完成的论文及相关的职务作品，知识产权归属郑州大学。根据郑州大学
-有关保留、使用学位论文的规定，同意学校保留或向国家有关部门或机构送交论文的复印
-件和电子版，允许论文被查阅和借阅；本人授权郑州大学可以将本学位论文的全部或部分
-编入有关数据库进行检索，可以采用影印、缩印或其他复制手段保存论文和汇编本学位论
-文。本人离校后发表、使用学位论文或与该学位论文直接相关的学术论文或成果时，第一
-署名单位仍然为郑州大学。保密论文在解密后应遵守此规定。}
-\newcommand{\zzu@authdate}{日\hspace{\ccwd} 期：\hspace{4\ccwd} 年\hspace{2\ccwd} 月\hspace{2\ccwd} 日}
-\newcommand{\zzu@authorization@mk}{%原创性声明及授权声明
-  \thispagestyle{zzu@empty}
-  \vspace*{\stretch{1}}
-  \begin{center}
-    \sffamily\sanhao[1.55] \zzu@declarename
-  \end{center}
-  \vskip 20pt
-  \xiaosi[2]\zzu@declaretext
-  \vskip 20pt
-  \zzu@authorsig\hfill\zzu@declaredate\hspace*{2\ccwd}
-  \vspace*{\stretch{2}}
-  \begin{center}
-    \sffamily\sanhao[1.55] \zzu@authtitle
-  \end{center}
-  \vskip 20pt
-  \xiaosi[2]\zzu@authorization
-  \vskip 20pt
-  \zzu@authorsig\hfill\zzu@authdate\hspace*{2\ccwd}
-  \vspace*{\stretch{2}}}
+  \newcommand{\zzu@declarename}{学位论文原创性声明}
+  \newcommand{\zzu@authtitle}{学位论文使用授权声明}
+  \newcommand{\zzu@authorsig}{学位论文作者签名：}
+  \newcommand{\zzu@teachersig}{导师签名：}
+  \newcommand{\zzu@declaretext}{\hspace{2\ccwd}
+  本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的科研成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本声明的法律责任由本人承担。}
+  \newcommand{\zzu@declaredate}{日\hspace{\ccwd} 期：\hspace{4\ccwd} 年\hspace{2\ccwd} 月\hspace{2\ccwd} 日}
+  \newcommand{\zzu@authorization}{\hspace{2\ccwd}
+  本人完全了解郑州大学有关保留、使用学位论文的规定，同意学校保留或向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅；本人授权郑州大学可以将本学位论文的全部或部分编入有关数据库进行检索，可以采用影印、缩印或者其他复制手段保存论文和汇编本学位论文。保密论文在解密后应遵守此规定。}
+  \newcommand{\zzu@authdate}{日\hspace{\ccwd} 期：\hspace{4\ccwd} 年\hspace{2\ccwd} 月\hspace{2\ccwd} 日}
+  \newcommand{\zzu@authorization@mk}{%原创性声明及授权声明
+    \thispagestyle{zzu@empty}
+    \vspace*{\stretch{1}}
+    \begin{center}
+      \sffamily\sanhao[1.55] \zzu@declarename
+    \end{center}
+    \vskip 20pt
+    \xiaosi[2]\zzu@declaretext
+    \vskip 20pt
+    \zzu@authorsig\hfill\zzu@teachersig\hspace*{8\ccwd}
+    \\
+    \hspace*{2\ccwd}\hfill\zzu@authdate
+    \vspace*{\stretch{2}}
+    \begin{center}
+      \sffamily\sanhao[1.55] \zzu@authtitle
+    \end{center}
+    \vskip 20pt
+    \xiaosi[2]\zzu@authorization
+    \vskip 20pt
+    \zzu@authorsig\hfill\zzu@teachersig\hspace*{8\ccwd}
+    \\
+    \hspace*{2\ccwd}\hfill\zzu@authdate
+    \vspace*{\stretch{2}}}
 \def\zzu@setup@pdfinfo{%pdf文档信息
   \hypersetup{%
     pdftitle={\zzu@ctitle},
