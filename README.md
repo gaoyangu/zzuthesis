@@ -6,6 +6,10 @@
 - [master分支](https://github.com/gaoyangu/zzuthesis/tree/master)为`专业硕士`版本
 - [main分支](https://github.com/gaoyangu/zzuthesis/tree/main)为`学术硕士`版本
 
+### 已知问题
+
+- [ ] 封面的 `郑州大学` 四个字的字体不对
+- [ ] 封面的郑州大学logo的颜色可能不对
 ### Tips:
 
 Q：如何将章节标题中的英文字体改为Times New Roman
